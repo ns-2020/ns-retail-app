@@ -13,6 +13,8 @@ const debug = require('debug')('app');
 const path = require('path');
 const env = app.get('env');
 
+app.use(express.static(path.join(__dirname, 'build')));
+
 app.use(bodyParser.urlencoded({
     extended: true
 }));
