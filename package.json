@@ -1,13 +1,13 @@
 {
   "name": "ns-retail-app",
-  "version": "0.0.1",
-  "description": "App to fetch data using OAuth",
+  "version": "1.0.0",
+  "description": "App to fetch product",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
-  "author": "Vipul Jain",
+  "author": "Neha Singhal",
   "license": "ISC",
   "devDependencies": {
     "nodemon": "^2.0.2"
@@ -15,10 +15,9 @@
   "dependencies": {
     "axios": "^0.19.2",
     "cookie-parser": "^1.4.5",
+    "debug": "^4.1.1",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
-    "knex": "^0.20.11",
     "moment-timezone": "^0.5.28",
-    "mysql": "^2.18.1"
   }
 }
