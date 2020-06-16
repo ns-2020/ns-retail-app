@@ -9,6 +9,8 @@ exports._getProduct = async function (req, res) {
 
     try {
 
+        const regex = new RegExp('^[0-9]+$');
+
     	// basic param validation 
         if (!req || !req.query || !req.query.id) {
             res.send({success : false, error :{ statusCode : 400, message : 'Bad Request', errText : 'Product id missing.'}, data : null})
@@ -16,6 +18,11 @@ exports._getProduct = async function (req, res) {
         }
 
         const productid = req.query.id;
+
+        if (!productid.match(regex)) {
+            res.send({success : false, error :{ statusCode : 400, message : 'Bad Request', errText : 'Product id must contain only numbers.'}, data : null})
+            return
+        }
         
         let response = await api._fetchProductById(productid);
 
@@ -55,9 +62,16 @@ exports._updateProduct = async function (req, res) {
 
     try {
 
+        const regex = new RegExp('^[0-9]+$');
+
         // basic param validation 
         if (!req || !req.query || !req.query.id) {
             res.send({success : false, error :{ statusCode : 400, message : 'Bad Request', statusText : 'Product id missing.'}, data : null})
+            return
+        }
+
+        if (!req.query.id.match(regex)) {
+            res.send({success : false, error :{ statusCode : 400, message : 'Bad Request', errText : 'Product id must contain only numbers.'}, data : null})
             return
         }
 
